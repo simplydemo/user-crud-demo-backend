@@ -78,7 +78,7 @@ curl -v -L -X DELETE 'http://localhost:8080/api/users/4' \
 ```
 
 ## Appendix
-- [http://localhost:8080/h2-console/](h2-console)
+- [h2-console](http://localhost:8080/h2-console/)
 ```
 http://localhost:8080/h2-console
 
