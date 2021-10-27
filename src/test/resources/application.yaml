@@ -1,0 +1,47 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+spring:
+  application:
+    name: backend
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+    default-property-inclusion:
+      - always
+      - non_null
+      - non_absent
+      - non_default
+      - non_empty
+  datasource:
+    # if not running H2 database instance
+    # url: "jdbc:h2:file:~/demo"
+    # if running H2 database instance
+    url: "jdbc:h2:tcp://localhost:9092/mem:demo"
+    driver-class-name: "org.h2.Driver"
+    username: sa
+  jpa:
+    database-platform: "org.hibernate.dialect.H2Dialect"
+    hibernate:
+      ddl-auto: none
+  h2:
+    console:
+      enabled: true
+
+logging:
+  level:
+    root: INFO
+    com.demo.backend: DEBUG
+    org.springframework.web: INFO
+    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: TRACE
+    org.springframework.kafka: TRACE
+    org.apache.kafka: INFO
+    "org.hibernate": INFO
+    "org.hibernate.SQL": DEBUG
+    "org.hibernate.tool.hbm2ddl": DEBUG
+    "org.hibernate.type": TRACE
+    "org.hibernate.stat": DEBUG
+    "org.hibernate.type.BasicTypeRegistry": WARN
+  file:
+    name: "target/backend-test.log"
