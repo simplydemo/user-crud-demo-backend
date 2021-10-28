@@ -22,7 +22,7 @@ class User(
 
     var title: String? = null,
 
-    var password: String? = null,
+    var usercode: String? = null,
 
     @Column(name = "create_dts", insertable = false, updatable = false)
     var createDts: LocalDateTime? = null,
@@ -32,8 +32,8 @@ class User(
 ) {
 
     constructor(
-        firstName: String, lastName: String, email: String, role: String, title: String?, password: String?
-    ) : this(null, firstName, lastName, email, role, title, password)
+        firstName: String, lastName: String, email: String, role: String, title: String?, usercode: String?
+    ) : this(null, firstName, lastName, email, role, title, usercode)
 
     class Builder {
         private var id: Long? = null
@@ -42,7 +42,7 @@ class User(
         private var email: String? = null
         private var role: String? = null
         private var title: String? = null
-        private var password: String? = null
+        private var usercode: String? = null
 
         fun id(id: Long?): Builder {
             this.id = id
@@ -74,12 +74,12 @@ class User(
             return this
         }
 
-        fun password(password: String?): Builder {
-            this.password = password
+        fun usercode(usercode: String?): Builder {
+            this.usercode = usercode
             return this
         }
 
-        fun build() = User(id, firstName, lastName, email, role, title, password)
+        fun build() = User(id, firstName, lastName, email, role, title, usercode)
     }
 
     override fun equals(other: Any?): Boolean {
@@ -92,7 +92,7 @@ class User(
         if (email != other.email) return false
         if (role != other.role) return false
         if (title != other.title) return false
-        if (password != other.password) return false
+        if (usercode != other.usercode) return false
         if (createDts != other.createDts) return false
 
         return true
@@ -105,13 +105,13 @@ class User(
         result = 31 * result + (email?.hashCode() ?: 0)
         result = 31 * result + (role?.hashCode() ?: 0)
         result = 31 * result + (title?.hashCode() ?: 0)
-        result = 31 * result + (password?.hashCode() ?: 0)
+        result = 31 * result + (usercode?.hashCode() ?: 0)
         result = 31 * result + (createDts?.hashCode() ?: 0)
         return result
     }
 
     override fun toString(): String {
-        return "User(id=$id, firstName=$firstName, lastName=$lastName, email=$email, role=$role, title=$title, password=$password, createDts=$createDts, updateDts=$updateDts)"
+        return "User(id=$id, firstName=$firstName, lastName=$lastName, email=$email, role=$role, title=$title, usercode=$usercode, createDts=$createDts, updateDts=$updateDts)"
     }
 
 }

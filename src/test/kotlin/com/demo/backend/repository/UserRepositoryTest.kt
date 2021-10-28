@@ -51,7 +51,7 @@ class UserRepositoryTest @Autowired constructor(var userRepository: UserReposito
         result.role = "Admin"
         result.title = "MS"
         result.firstName = "Test2"
-        result.password = "pass1234"
+        result.usercode = "pass1234"
 
         userRepository.save(result)
         val result2 = userRepository.findByIdOrNull(id)

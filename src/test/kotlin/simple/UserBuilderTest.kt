@@ -39,7 +39,7 @@ class UserBuilderTest {
             .email("apple@fruit.com")
             .title("MR")
             .role("Admin")
-            .password("a12345")
+            .usercode("a12345")
             .build()
         log.info("user: {}", json(user))
         assertThat(user).isNotNull

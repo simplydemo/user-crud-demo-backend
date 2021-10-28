@@ -38,7 +38,7 @@ class UserServiceTest(@Autowired val userService: UserService, @Autowired val ma
 
     @Test
     fun ut1002_getById() {
-        val user = userService.getById(1)
+        val user = userService.getById(4)
         log.info("user: {}", mapper.writeValueAsString(user))
         assertThat(user).isNotNull
     }
@@ -60,7 +60,7 @@ class UserServiceTest(@Autowired val userService: UserService, @Autowired val ma
             .email("pineapple@farm.com")
             .role("Guest")
             .title("MS")
-            .password("123123")
+            .usercode("123123")
             .build()
 
         val result = userService.save(user)

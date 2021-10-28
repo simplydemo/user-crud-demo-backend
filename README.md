@@ -17,49 +17,33 @@ mvn spring-boot:run -DskipTests=true
 ### users-add
 ```
 curl -v -L  -X POST 'http://localhost:8080/api/users' \
---header 'Content-Type: application/json' \
---header 'Authorization: Bearer KKOORREEAA1976' \
+-H 'Content-Type: application/json' -H 'Authorization: Bearer {token}' \
 --data-raw '{
     "firstName": "scott2",
     "lastName": "pines",
     "email": "scott2@pines.io",
     "role": "Manager",
     "title": "MR",
-    "password": "scott21234"
+    "usercode": "scott21234"
 }' 
 ```
 
 ### users-find-all
 ```
 curl -v -L -X GET 'http://localhost:8080/api/users' \
- -H 'Content-Type: application/json' -H 'Authorization: Bearer KKOORREEAA1976' 
+ -H 'Content-Type: application/json' -H 'Authorization: Bearer {token}' 
 ```
 
 ### users-find-by-id
 ```
 curl -v -L -X GET 'http://localhost:8080/api/users/1' \
- -H 'Content-Type: application/json' -H 'Authorization: Bearer KKOORREEAA1976' \
- \
---data-raw '{
-    "firstName": "Melon",
-    "lastName": "Fruit",
-    "email": "melon.fruit@farm.io",
-    "role": "Manager",
-    "title": "MS",
-    "password": "melon1234"
-}'
-```
-
-### users-find-by-query
-```
-curl -v -L -X GET 'http://localhost:8080/api/users/query?lastName=Fruit&title=mr&email=farm&role=manager' \
--H 'Content-Type: application/json' -H 'Authorization: Bearer KKOORREEAA1976'
+ -H 'Content-Type: application/json' -H 'Authorization: Bearer {token}' 
 ```
 
 ### users-modify
 ```
 curl -v -L -X PUT 'http://localhost:8080/api/users/3' \
- -H 'Content-Type: application/json' -H 'Authorization: Bearer KKOORREEAA1976' \
+ -H 'Content-Type: application/json' -H 'Authorization: Bearer {token}' \
  --data-raw '{
     "id": 3,
     "firstName": "Banana",
@@ -67,14 +51,21 @@ curl -v -L -X PUT 'http://localhost:8080/api/users/3' \
     "email": "banana.fruit@farm.io",
     "role": "Admin",
     "title": "Mr",
-    "password": "banana1234"
+    "usercode": "banana1234"
 }' 
 ```
+
+### users-find-by-query
+```
+curl -v -L -X GET 'http://localhost:8080/api/users/query?lastName=Fruit&title=mr&email=farm&role=manager' \
+-H 'Content-Type: application/json' -H 'Authorization: Bearer {token}'
+```
+
 
 ### users-delete
 ```
 curl -v -L -X DELETE 'http://localhost:8080/api/users/4' \
--H 'Content-Type: application/json' -H 'Authorization: Bearer KKOORREEAA1976'
+-H 'Content-Type: application/json' -H 'Authorization: Bearer {token}'
 ```
 
 ## Appendix
